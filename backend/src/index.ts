@@ -1,12 +1,9 @@
-import express from 'express';
+import 'dotenv/config';
 
-const PORT = process.env.PORT || 3000;
-const app = express();
+import { app } from './app.js';
 
-
-app.use(express.json());
-
+const PORT = Number(process.env.PORT ?? 3000);
 
 app.listen(PORT, () => {
-    console.log("Iron-stock backend running succesfully")
+	console.log(`Iron-Stock API running on port ${PORT}`);
 });
