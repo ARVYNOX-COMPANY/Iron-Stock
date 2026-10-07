@@ -45,14 +45,27 @@ const Sidebar = () => {
       <aside
         className={`${styles.sidebar} ${
           isOpen ? styles.sidebarOpen : ""
-        } fixed top-0 left-0 h-screen w-[260px] bg-[var(--background-dark)] text-white flex flex-col z-40 transition-transform duration-300 ease-in-out`}
+        } fixed top-0 left-0 h-screen w-[260px] text-white flex flex-col z-40 transition-transform duration-300 ease-in-out`}
       >
-        <div className="flex items-center gap-2 px-4 py-5 border-b border-white/10">
-          <IoStorefrontOutline size={24} />
-          <span className="text-lg font-semibold">Iron Stock</span>
+        <div
+          className={`${styles.logoContainer} flex items-center gap-3 px-4 py-5 border-b border-white/10`}
+        >
+          <div
+            className={`${styles.logoIcon} flex h-9 w-9 items-center justify-center rounded-lg`}
+          >
+            <IoStorefrontOutline size={20} />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-lg font-semibold leading-tight">
+              Iron Stock
+            </span>
+            <span className="text-xs text-white/60">Inventory System</span>
+          </div>
         </div>
 
-        <nav className="flex flex-col gap-1 p-3 overflow-y-auto">
+        <nav
+          className={`${styles.navContainer} flex flex-col gap-1 p-3 overflow-y-auto flex-1`}
+        >
           {navItems.map((item) => (
             <NavItem key={item.title} title={item.title} icon={item.icon} />
           ))}

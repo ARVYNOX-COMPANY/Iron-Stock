@@ -8,9 +8,13 @@ const NavItem = ({
   icon: React.ReactElement;
 }) => {
   return (
-    <button className={`${styles.navItem} flex items-center gap-3 w-full px-3 py-2 rounded-md transition-colors hover:bg-white/10`}>
-      <span className="text-lg flex items-center justify-center">{icon}</span>
-      <p className="text-sm font-medium truncate">{title}</p>
+    <button className={`${styles.navItem} group flex items-center gap-3 w-full px-3 py-2 rounded-lg transition-all duration-200`}>
+      <span className="text-lg flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
+        {icon}
+      </span>
+      <p className="text-sm font-medium truncate opacity-95 group-hover:opacity-100 transition-opacity">
+        {title}
+      </p>
     </button>
   );
 };
