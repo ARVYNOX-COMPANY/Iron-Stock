@@ -1,6 +1,12 @@
+@import "tailwindcss";
+
 :root {
-  --background: #ffffff;
+  --background-dark: #0F1D2E;
   --foreground: #171717;
+}
+
+@theme {
+  --color-background-dark: var(--background-dark);
 }
 
 * {
