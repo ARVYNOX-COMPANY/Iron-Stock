@@ -1,0 +1,18 @@
+.navItem {
+  color: #fff;
+  text-align: left;
+  position: relative;
+}
+
+.navItem:hover {
+  background-color: var(--background-button-primary);
+}
+
+.navItem:active {
+  background-color: var(--background-button-primary);
+}
+
+.navItem:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 2px;
+}
