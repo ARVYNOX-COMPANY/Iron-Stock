@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Arquitectura
 
-## Getting Started
+Este proyecto sigue una **Arquitectura Hexagonal (Ports & Adapters)**. El objetivo es separar la lógica de negocio de los detalles de infraestructura para facilitar el mantenimiento, las pruebas y la escalabilidad.
 
-First, run the development server:
+### Estructura de carpetas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+```text
+src/
+  app/                    # ÚNICAMENTE sistema de rutas (Next.js App Router)
+    layout.tsx
+    page.tsx
+  domain/
+    entities/             # Entidades del dominio
+    ports/                # Puertos (interfaces)
+  application/
+    use-cases/            # Casos de uso
+  infrastructure/
+    adapters/             # Adaptadores que implementan los puertos
+    http/                 # Cliente HTTP base (opcional)
+  presentation/
+    components/           # Componentes reutilizables
+    hooks/                # Hooks que consumen casos de uso
+    templates/            # Plantillas de página (presentacionales)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+src/
+  domain/
+    entities/        # Tipos puros (Product, User...)
+    ports/           # Interfaces (IProductRepository, IAuthRepository)
+  application/
+    use-cases/       # GetProducts, CreateProduct (usan ports)
+  infrastructure/
+    http/            # Cliente HTTP base
+    adapters/        # Implementan ports (products.adapter.ts)
+  presentation/
+    hooks/           # hooks que usan use-cases
+    components/      # UI
+  app/               # Next App Router (pages/views)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Nota: Con App Router no existe pages/. Las rutas se definen mediante carpetas que contienen un page.tsx dentro de app/.
