@@ -2,17 +2,12 @@
 
 :root {
   --background-dark: #0F1D2E;
-  --foreground: #171717;
+  --background-button-primary: #2563EB;
 }
 
 @theme {
   --color-background-dark: var(--background-dark);
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  --color-button-primary: var(--background-button-primary);
 }
 
 a {
