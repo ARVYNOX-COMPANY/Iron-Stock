@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.ts",
+    "dev": "node api.js && nodemon src/index.ts",
+    "build": "node api.js && tsc",
+    "start": "node api.js && node dist/index.ts",
     "postinstall": "prisma skills sync || exit 0"
   },
   "keywords": [],
