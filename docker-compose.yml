@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: iron-stock-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: iron_stock
+      POSTGRES_PASSWORD: iron_stock_dev
+      POSTGRES_DB: iron_stock
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - iron_stock_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  iron_stock_postgres_data:
