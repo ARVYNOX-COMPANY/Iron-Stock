@@ -1,11 +1,5 @@
-import Sidebar from "@/presentation/components/sidebar";
-
 const HomeTemplate = () => {
-  return (
-    <section>
-      <Sidebar />
-    </section>
-  );
+  return <section></section>;
 };
 
 export default HomeTemplate;
