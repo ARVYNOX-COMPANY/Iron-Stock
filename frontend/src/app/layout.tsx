@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/presentation/components/sidebar";
+import { Providers } from "@/presentation/store/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +22,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Providers>
+          <Sidebar />
+
+          <section className="padding-global">{children}</section>
+        </Providers>
+      </body>
     </html>
   );
 }
