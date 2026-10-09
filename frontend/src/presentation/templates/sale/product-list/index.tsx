@@ -1,7 +1,13 @@
-const listProducts = [{ name: "Test", code: "TESTCODE", price: 400, img: "" }];
+import ProductItem from "./product-item";
 
 const ProductList = () => {
-  return <div>ProductList</div>;
+  return (
+    <section>
+      {listProducts.map((item) => {
+        return <ProductItem key={item.id} {...item} />;
+      })}
+    </section>
+  );
 };
 
 export default ProductList;
