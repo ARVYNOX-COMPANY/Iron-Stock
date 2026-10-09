@@ -1,0 +1,21 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "feature/backend-database-schema",
+    "feature/front-1",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "feature/backend-database-schema": "main",
+    "feature/front-1": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "feature/backend-database-schema",
+    "feature/front-1",
+    "origin"
+  ]
+}
