@@ -3,11 +3,13 @@
 :root {
   --background-dark: #0F1D2E;
   --background-button-primary: #2563EB;
+  --text-color-primary: #172033;
 }
 
 @theme {
   --color-background-dark: var(--background-dark);
   --color-button-primary: var(--background-button-primary);
+  --color-text-primary: var(--text-color-primary)
 }
 
 a {
@@ -15,3 +17,6 @@ a {
   text-decoration: none;
 }
 
+.padding-global {
+  padding-left: 260px;
+}
