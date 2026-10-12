@@ -3,13 +3,15 @@
 :root {
   --background-dark: #0F1D2E;
   --background-button-primary: #2563EB;
-  --text-color-primary: #172033;
+  --color-primary: #172033;
+  --color-gray-light: #9CA3AF;
 }
 
 @theme {
   --color-background-dark: var(--background-dark);
   --color-button-primary: var(--background-button-primary);
-  --color-text-primary: var(--text-color-primary)
+  --color-primary: var(--color-primary);
+  --color-gray-light: var(--color-gray-light);
 }
 
 a {
