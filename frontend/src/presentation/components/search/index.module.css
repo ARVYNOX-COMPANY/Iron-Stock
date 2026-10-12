@@ -1,0 +1,82 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 0.625rem 2.5rem 0.625rem 2.5rem;
+  font-size: 0.875rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid;
+  border-color: var(--background-button-primary, #2563eb);
+  border-radius: 0.75rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.focused .input,
+.input:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--background-button-primary, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+
+.icon {
+  position: absolute;
+  left: 0.875rem;
+  pointer-events: none;
+  transition: color 0.2s ease;
+  z-index: 1;
+  color: var(--background-button-primary, #2563eb);
+}
+
+.focused .icon,
+.input:focus + .icon,
+.container:has(.input:focus) .icon {
+  color: var(--background-button-primary, #2563eb);
+}
+
+.clearBtn {
+  position: absolute;
+  right: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.clearBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 640px) {
+  .input {
+    padding: 0.5rem 2.25rem 0.5rem 2.25rem;
+    font-size: 1rem;
+  }
+
+  .icon {
+    left: 0.75rem;
+  }
+
+  .clearBtn {
+    right: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
