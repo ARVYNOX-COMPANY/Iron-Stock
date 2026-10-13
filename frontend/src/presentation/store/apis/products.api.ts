@@ -1,4 +1,5 @@
 import { Product } from "@/domain/entities/product.entity";
+import { getAllProductsUseCase } from "@/infrastructure/config/product.dependencies";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const productsApi = createApi({
@@ -9,7 +10,15 @@ export const productsApi = createApi({
   tagTypes: ["Product"],
   endpoints: (builder) => ({
     getProducts: builder.query<Product[], void>({
-      query: () => "/products",
+      queryFn: async () => {
+        try {
+          const data = await getAllProductsUseCase.execute();
+
+          return { data };
+        } catch (error) {
+          return { error: { status: "CUSTOM_ERROR", error: String(error) } };
+        }
+      },
       providesTags: ["Product"],
     }),
   }),
