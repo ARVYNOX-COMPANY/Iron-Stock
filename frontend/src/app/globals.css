@@ -5,8 +5,10 @@
   --background-button-primary: #2563EB;
   --background-button-secondary: #F3F6FA;
   --background-button-primary-hover: #1447e6;
+  --border-gray-light: #9CA3AF;
   --color-primary: #172033;
   --color-gray-light: #9CA3AF;
+  --color-danger: #f48585;
 }
 
 @theme {
@@ -15,6 +17,7 @@
   --color-button-secondary: var(--background-button-secondary);
   --color-primary: var(--color-primary);
   --color-gray-light: var(--color-gray-light);
+  --color-danger: var(--color-danger);
   --color-button-primary-hover: var(--background-button-primary-hover)
 }
 
