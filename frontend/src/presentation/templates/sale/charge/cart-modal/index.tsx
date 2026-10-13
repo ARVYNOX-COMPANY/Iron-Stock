@@ -14,6 +14,7 @@ import {
 import type { CartItem } from "@/presentation/store/slices/cart.slice";
 import { IoMdRemove, IoMdAdd, IoMdClose, IoMdCash } from "react-icons/io";
 import styles from "./index.module.css";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 interface CartModalProps {
   onClose: () => void;
@@ -129,7 +130,7 @@ const CartModal = ({ onClose }: CartModalProps) => {
                     onClick={() => dispatch(removeItem(item.id))}
                     aria-label={`Eliminar ${item.name}`}
                   >
-                    <IoMdClose size={18} />
+                    <RiDeleteBin5Fill size={18} color="#f48585"/>
                   </button>
                 </li>
               ))}
