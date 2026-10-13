@@ -1,5 +1,5 @@
 import { Category } from "@/domain/entities/categories.entity";
-import { getAllCategoriesUseCase } from "@/infrastructure/config/product.dependencies";
+import { getAllCategoriesUseCase } from "@/infrastructure/config/category.dependencies";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const categoriesApi = createApi({
