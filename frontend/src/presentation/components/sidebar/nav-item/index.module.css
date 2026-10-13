@@ -5,7 +5,7 @@
 }
 
 .navItem:hover {
-  background-color: var(--background-button-primary);
+  background-color: var(--background-button-primary-hover);
 }
 
 .navItem:active {
@@ -15,4 +15,14 @@
 .navItem:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.4);
   outline-offset: 2px;
+}
+
+.active {
+  background-color: var(--background-button-primary);
+  color: #fff;
+}
+
+.active span,
+.active p {
+  opacity: 1;
 }
