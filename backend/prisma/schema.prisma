@@ -1,0 +1,208 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─────────────────────────────────────────────
+// USERS
+// ─────────────────────────────────────────────
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  inventoryMovements InventoryMovement[]
+
+  @@index([active])
+  @@map("users")
+}
+
+// ─────────────────────────────────────────────
+// CATEGORIES
+// ─────────────────────────────────────────────
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  products Product[]
+
+  @@index([active])
+  @@map("categories")
+}
+
+// ─────────────────────────────────────────────
+// SUPPLIERS
+// ─────────────────────────────────────────────
+
+model Supplier {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String?
+  phone     String?
+  address   String?
+  taxId     String?
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  products           ProductSupplier[]
+  inventoryMovements InventoryMovement[]
+
+  @@index([name])
+  @@index([active])
+  @@index([taxId])
+  @@map("suppliers")
+}
+
+// ─────────────────────────────────────────────
+// PRODUCTS
+// ─────────────────────────────────────────────
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  sku         String   @unique
+  barcode     String?  @unique
+  name        String
+  description String?
+
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+
+  costPrice Decimal @db.Decimal(12, 2)
+  salePrice Decimal @db.Decimal(12, 2)
+
+  stock    Int @default(0)
+  minStock Int @default(0)
+  maxStock Int?
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  suppliers          ProductSupplier[]
+  volumePrices       VolumePrice[]
+  inventoryMovements InventoryMovement[]
+
+  @@index([name])
+  @@index([categoryId])
+  @@index([active])
+  @@index([barcode])
+  @@map("products")
+}
+
+// ─────────────────────────────────────────────
+// PRODUCT ↔ SUPPLIER
+// ─────────────────────────────────────────────
+
+model ProductSupplier {
+  id         Int @id @default(autoincrement())
+  productId  Int
+  supplierId Int
+
+  supplierSku String?
+  costPrice   Decimal? @db.Decimal(12, 2)
+  active      Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  product  Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  supplier Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, supplierId])
+  @@index([supplierId])
+  @@index([active])
+  @@map("product_suppliers")
+}
+
+// ─────────────────────────────────────────────
+// VOLUME PRICING
+// ─────────────────────────────────────────────
+
+model VolumePrice {
+  id        Int @id @default(autoincrement())
+  productId Int
+
+  minQuantity Int
+  maxQuantity Int?
+
+  price Decimal @db.Decimal(12, 2)
+
+  active Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+  @@index([productId, active])
+  @@map("volume_prices")
+}
+
+// ─────────────────────────────────────────────
+// INVENTORY MOVEMENTS / KARDEX
+// ─────────────────────────────────────────────
+
+enum InventoryMovementType {
+  IN
+  OUT
+  ADJUSTMENT
+}
+
+enum InventoryMovementReason {
+  PURCHASE
+  SALE
+  RETURN
+  LOSS
+  DAMAGE
+  CORRECTION
+  INITIAL_STOCK
+}
+
+model InventoryMovement {
+  id Int @id @default(autoincrement())
+
+  productId Int
+  product   Product @relation(fields: [productId], references: [id], onDelete: Restrict)
+
+  supplierId Int?
+  supplier   Supplier? @relation(fields: [supplierId], references: [id], onDelete: SetNull)
+
+  userId Int?
+  user   User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  type   InventoryMovementType
+  reason InventoryMovementReason
+
+  quantity Int
+
+  previousStock Int
+  newStock      Int
+
+  unitCost Decimal? @db.Decimal(12, 2)
+
+  reference String?
+
+  createdAt DateTime @default(now())
+
+  @@index([productId, createdAt])
+  @@index([type, createdAt])
+  @@index([reason, createdAt])
+  @@index([supplierId])
+  @@index([userId])
+  @@map("inventory_movements")
+}
