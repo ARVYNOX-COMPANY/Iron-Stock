@@ -22,11 +22,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>
+      <body className="flex min-h-screen">
         <Providers>
           <Sidebar />
 
-          <section className="padding-global">{children}</section>
+          <section className="min-w-0 flex-1 pt-14 md:pt-0">{children}</section>
         </Providers>
       </body>
     </html>

@@ -55,7 +55,7 @@ const Sidebar = () => {
       <aside
         className={`${styles.sidebar} ${
           isOpen ? styles.sidebarOpen : ""
-        } fixed top-0 left-0 h-screen w-[260px] text-white flex flex-col z-40 transition-transform duration-300 ease-in-out`}
+        } fixed top-0 left-0 h-screen shrink-0 md:sticky w-[260px] text-white flex flex-col z-40 transition-transform duration-300 ease-in-out`}
       >
         <div
           className={`${styles.logoContainer} flex items-center gap-3 px-4 py-5 border-b border-white/10`}
