@@ -23,7 +23,7 @@ const ProductList = () => {
 
   return (
     <section>
-      {!!(isLoading || isLoadingCategories) && <Loading />}
+      {!!(isLoading || isLoadingCategories) && <Loading fullScreen />}
 
       <div className="flex gap-3 mb-6">
         {categories.length
