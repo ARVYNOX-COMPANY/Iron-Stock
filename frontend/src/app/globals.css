@@ -3,11 +3,23 @@
 :root {
   --background-dark: #0F1D2E;
   --background-button-primary: #2563EB;
+  --background-button-secondary: #F3F6FA;
+  --background-button-primary-hover: #1447e6;
+  --border-gray-light: #9CA3AF;
+  --border-gray-light-secondary: #e5e7eb;
+  --color-primary: #172033;
+  --color-gray-light: #9CA3AF;
+  --color-danger: #f48585;
 }
 
 @theme {
   --color-background-dark: var(--background-dark);
   --color-button-primary: var(--background-button-primary);
+  --color-button-secondary: var(--background-button-secondary);
+  --color-primary: var(--color-primary);
+  --color-gray-light: var(--color-gray-light);
+  --color-danger: var(--color-danger);
+  --color-button-primary-hover: var(--background-button-primary-hover)
 }
 
 a {
@@ -15,3 +27,18 @@ a {
   text-decoration: none;
 }
 
+.padding-global {
+  padding-left: 260px;
+}
+
+.btn-primary {
+  background-color: var(--background-button-primary);
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--background-button-primary-hover);
+}

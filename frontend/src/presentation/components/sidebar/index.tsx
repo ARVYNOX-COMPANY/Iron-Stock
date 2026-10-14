@@ -17,13 +17,23 @@ import {
 } from "react-icons/io5";
 
 const navItems = [
-  { title: "Inicio", icon: <IoHomeOutline /> },
-  { title: "POS / Venta", icon: <IoCartOutline /> },
-  { title: "Inventario & Kardex", icon: <IoClipboardOutline /> },
-  { title: "Productos", icon: <IoCubeOutline /> },
-  { title: "Reportes", icon: <IoBarChartOutline /> },
-  { title: "Historial", icon: <IoTimeOutline /> },
-  { title: "Configuración", icon: <IoSettingsOutline /> },
+  { title: "Inicio", icon: <IoHomeOutline />, link: "/", id: "1" },
+  { title: "POS / Venta", icon: <IoCartOutline />, link: "/pos", id: "2" },
+  {
+    title: "Inventario & Kardex",
+    icon: <IoClipboardOutline />,
+    link: "/pos",
+    id: "3",
+  },
+  { title: "Productos", icon: <IoCubeOutline />, link: "/pos", id: "4" },
+  { title: "Reportes", icon: <IoBarChartOutline />, link: "/pos", id: "5" },
+  { title: "Historial", icon: <IoTimeOutline />, link: "/pos", id: "6" },
+  {
+    title: "Configuración",
+    icon: <IoSettingsOutline />,
+    link: "/pos",
+    id: "7",
+  },
 ];
 
 const Sidebar = () => {
@@ -67,7 +77,7 @@ const Sidebar = () => {
           className={`${styles.navContainer} flex flex-col gap-1 p-3 overflow-y-auto flex-1`}
         >
           {navItems.map((item) => (
-            <NavItem key={item.title} title={item.title} icon={item.icon} />
+            <NavItem key={item.id} {...item} />
           ))}
         </nav>
       </aside>

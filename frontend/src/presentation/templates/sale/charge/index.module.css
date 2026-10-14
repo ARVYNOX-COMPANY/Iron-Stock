@@ -1,0 +1,115 @@
+.fixedBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  padding: 0.75rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .fixedBar {
+    left: 260px;
+  }
+}
+
+.barContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.barInfo {
+  display: flex;
+  gap: 0.125rem;
+  align-items: center;
+  gap: 10px;
+  min-width: 100px;
+}
+
+.barLabel {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.barValue {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.viewSaleBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--background-button-primary);
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px -4px rgba(37, 99, 235, 0.4);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* .viewSaleBtn:hover:not(:disabled) {
+  background: red;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px -4px rgba(37, 99, 235, 0.5);
+} */
+
+.viewSaleBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.viewSaleBtn:disabled {
+  cursor: not-allowed;
+  background: var(--background-button-secondary);
+  box-shadow: none;
+  transform: none;
+  color: black;
+}
+
+@media (max-width: 640px) {
+  .fixedBar {
+    padding: 0.625rem 1rem;
+  }
+
+  .barContent {
+    gap: 1rem;
+  }
+
+  .barInfo {
+    min-width: 80px;
+  }
+
+  .barLabel {
+    font-size: 0.625rem;
+  }
+
+  .barValue {
+    font-size: 1rem;
+  }
+
+  .viewSaleBtn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9375rem;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+}
