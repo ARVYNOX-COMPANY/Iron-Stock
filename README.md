@@ -1,0 +1,3 @@
+Csrpetas Creadas:
+ - Inventario
+ - Kardex
