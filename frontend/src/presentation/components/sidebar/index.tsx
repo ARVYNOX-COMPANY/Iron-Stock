@@ -22,16 +22,16 @@ const navItems = [
   {
     title: "Inventario & Kardex",
     icon: <IoClipboardOutline />,
-    link: "/pos",
+    link: "/inventary",
     id: "3",
   },
-  { title: "Productos", icon: <IoCubeOutline />, link: "/pos", id: "4" },
-  { title: "Reportes", icon: <IoBarChartOutline />, link: "/pos", id: "5" },
-  { title: "Historial", icon: <IoTimeOutline />, link: "/pos", id: "6" },
+  { title: "Productos", icon: <IoCubeOutline />, link: "/products", id: "4" },
+  { title: "Reportes", icon: <IoBarChartOutline />, link: "/reports", id: "5" },
+  { title: "Historial", icon: <IoTimeOutline />, link: "/history", id: "6" },
   {
     title: "Configuración",
     icon: <IoSettingsOutline />,
-    link: "/pos",
+    link: "/settings",
     id: "7",
   },
 ];
