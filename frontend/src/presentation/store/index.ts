@@ -3,6 +3,7 @@ import { productsApi } from "./apis/products.api";
 import { categoriesApi } from "./apis/categories.api";
 import cartReducer from "./slices/cart.slice";
 import salesReducer from "./slices/sales.slice";
+import settingsReducer from "./slices/settings.slice";
 
 export const makeStore = () =>
   configureStore({
@@ -10,6 +11,7 @@ export const makeStore = () =>
       [productsApi.reducerPath]: productsApi.reducer,
       [categoriesApi.reducerPath]: categoriesApi.reducer,
       cart: cartReducer,
+      settings: settingsReducer,
       sales: salesReducer,
     },
     middleware: (getDefaultMiddleware) =>
