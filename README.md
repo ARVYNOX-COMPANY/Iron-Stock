@@ -4,6 +4,4 @@ Carpetas Creadas:
 
 Ui generada a partir del figma del proyecto
 
-Finalizado: Inventario
-
-Para acabar: Kardex
+Finalizado: Inventario y Kardex
