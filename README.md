@@ -1,7 +1,7 @@
-Carpetas Creadas:
+Folders create it:
  - Inventario
  - Kardex
 
-Ui generada a partir del figma del proyecto
+Ui generate it by figma project
 
-Finalizado: Inventario y Kardex
+Finish it: Inventario y Kardex
