@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { productsApi } from "./apis/products.api";
 import { categoriesApi } from "./apis/categories.api";
 import cartReducer from "./slices/cart.slice";
+import salesReducer from "./slices/sales.slice";
 
 export const makeStore = () =>
   configureStore({
@@ -9,9 +10,13 @@ export const makeStore = () =>
       [productsApi.reducerPath]: productsApi.reducer,
       [categoriesApi.reducerPath]: categoriesApi.reducer,
       cart: cartReducer,
+      sales: salesReducer,
     },
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(productsApi.middleware, categoriesApi.middleware),
+      getDefaultMiddleware().concat(
+        productsApi.middleware,
+        categoriesApi.middleware,
+      ),
   });
 
 export type AppStore = ReturnType<typeof makeStore>;
