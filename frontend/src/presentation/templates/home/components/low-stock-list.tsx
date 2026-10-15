@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Product } from "@/domain/entities/product.entity";
+import type { Product } from "@/domain/entities/product";
 
 const CRITICAL_STOCK = 4;
 

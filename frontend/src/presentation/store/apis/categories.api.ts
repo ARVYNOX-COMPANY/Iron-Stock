@@ -1,4 +1,4 @@
-import { Category } from "@/domain/entities/categories.entity";
+import { Category } from "@/domain/entities/categories";
 import { getAllCategoriesUseCase } from "@/infrastructure/config/category.dependencies";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 

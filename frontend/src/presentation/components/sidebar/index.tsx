@@ -14,6 +14,7 @@ import {
   IoCloseOutline,
   IoStorefrontOutline,
 } from "react-icons/io5";
+import UserMenu from "./user-menu";
 
 const navItems = [
   { title: "Inicio", icon: <IoHomeOutline />, link: "/", id: "1" },
@@ -77,12 +78,14 @@ const Sidebar = () => {
         </div>
 
         <nav
-          className={`${styles.navContainer} flex flex-col gap-1 p-3 overflow-y-auto flex-1`}
+          className={`${styles.navContainer} flex flex-col gap-2 p-3 overflow-y-auto flex-1`}
         >
           {navItems.map((item) => (
             <NavItem key={item.id} {...item} />
           ))}
         </nav>
+
+        <UserMenu name="Yadira Condezo" role="Administradora" />
       </aside>
 
       <div

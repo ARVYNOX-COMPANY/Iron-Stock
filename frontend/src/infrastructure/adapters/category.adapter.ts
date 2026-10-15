@@ -1,4 +1,4 @@
-import { Category } from "@/domain/entities/categories.entity";
+import { Category } from "@/domain/entities/categories";
 import { ICategoryRepository } from "@/domain/ports/category.repository.port";
 
 export class CategoryHttpAdapter implements ICategoryRepository {
