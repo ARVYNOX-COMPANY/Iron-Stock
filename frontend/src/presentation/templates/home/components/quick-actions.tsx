@@ -3,8 +3,8 @@ import { IoAdd } from "react-icons/io5";
 
 const ACTIONS = [
   { label: "Nueva venta", href: "/pos", primary: true },
-  { label: "Agregar producto", href: "/productos" },
-  { label: "Ingreso de mercadería", href: "/inventario" },
+  { label: "Agregar producto", href: "/products" },
+  { label: "Ingreso de mercadería", href: "/inventary" },
 ];
 
 const QuickActions = () => (

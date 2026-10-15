@@ -6,7 +6,7 @@ const TopProducts = ({ products }: { products: TopProduct[] }) => (
     <header className="mb-2 flex items-center justify-between">
       <h2 className="font-semibold text-primary">Más vendidos esta semana</h2>
       <Link
-        href="/productos"
+        href="/products"
         className="text-sm text-button-primary hover:underline"
       >
         Ver productos
