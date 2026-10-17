@@ -8,7 +8,7 @@ const LowStockList = ({ products }: { products: Product[] }) => (
     <header className="mb-2 flex items-center justify-between">
       <h2 className="font-semibold text-primary">Stock bajo</h2>
       <Link
-        href="/inventario"
+        href="/inventary"
         className="text-sm text-button-primary hover:underline"
       >
         Ver inventario
