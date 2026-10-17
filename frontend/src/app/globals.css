@@ -19,7 +19,30 @@
   --color-primary: var(--color-primary);
   --color-gray-light: var(--color-gray-light);
   --color-danger: var(--color-danger);
-  --color-button-primary-hover: var(--background-button-primary-hover)
+  --color-button-primary-hover: var(--background-button-primary-hover);
+  --color-success: #15803d;
+  --color-success-soft: #dcfce7;
+  --color-warning: #b45309;
+  --color-warning-soft: #fef3c7;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fee2e2;
+  --color-border: #e2e8f0;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"],
+  select,
+  label[for],
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
 }
 
 a {

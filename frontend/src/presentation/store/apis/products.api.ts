@@ -1,4 +1,4 @@
-import { Product } from "@/domain/entities/product.entity";
+import { Product } from "@/domain/entities/product";
 import { getAllProductsUseCase } from "@/infrastructure/config/product.dependencies";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
