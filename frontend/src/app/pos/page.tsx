@@ -1,5 +1,5 @@
-import SalesTemplate from "@/presentation/templates/sale";
+import PosTemplate from "@/presentation/templates/pos";
 
 export default function Pos() {
-  return <SalesTemplate />;
+  return <PosTemplate />;
 }

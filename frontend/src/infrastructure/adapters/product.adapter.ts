@@ -1,4 +1,4 @@
-import { Product } from "@/domain/entities/product.entity";
+import { Product } from "@/domain/entities/product";
 import { IProductRepository } from "@/domain/ports/product.repository.port";
 
 export class ProductHttpAdapter implements IProductRepository {

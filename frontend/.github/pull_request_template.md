@@ -14,5 +14,3 @@
 -
 
 ## Additional notes
-
-Related issues, pending work, or anything the reviewer should know.
